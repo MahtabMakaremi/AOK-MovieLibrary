@@ -1,0 +1,37 @@
+﻿<div class="card mb-3" style="max-width: 420px;">
+    <div class="card-body py-2">
+        <div class="d-flex align-items-start justify-content-between">
+
+            <div class="d-flex">
+                <img src="images/poster.png"
+                     alt="Poster"
+                     width="32"
+                     height="32"
+                     class="me-2" />
+
+                <div>
+                    <div class="fw-semibold">@Movie.Title (@Movie.Year)</div>
+
+                    <div class="text-muted small">
+                        @Movie.GenreText
+                    </div>
+
+                    <div class="text-muted small mt-1">
+                        @Movie.Runtime min
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-sm btn-primary"
+                    @onclick="() => OnShowDetails.InvokeAsync(Movie.Id)">
+                Details
+            </button>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public MovieOverviewData Movie { get; set; } = default!;
+    [Parameter] public EventCallback<Guid> OnShowDetails { get; set; }
+}

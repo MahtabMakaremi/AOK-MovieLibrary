@@ -9,6 +9,10 @@ builder.Services.AddRazorComponents()
 // Add services to the container from the library project
 builder.Services.AddLibraryServices();
 
+// DI direkt hier (ohne AddLibraryServices)
+builder.Services.AddSingleton<IMovieService, MovieService>();
+builder.Services.AddSingleton<IPersonService, PersonService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Frontend\Components\" />
     <Folder Include="Models\Queries\" />
   </ItemGroup>
 

@@ -1,0 +1,43 @@
+﻿@page "/movies"
+@inject IMovieService MovieService
+@inject IJSRuntime JS
+
+<h1>Movies</h1>
+
+@if (_loading)
+{
+    <p>Lade…</p>
+}
+else if (_movies.Count == 0)
+{
+    <p>Keine Filme vorhanden.</p>
+}
+else
+{
+    @foreach (var movie in _movies)
+    {
+        <MovieListItem Movie="movie" OnShowDetails="HandleShowDetails" />
+    }
+}
+
+@code {
+    private bool _loading = true;
+    private List<MovieOverviewData> _movies = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        var data = await MovieService.GetAllOverviewAsync();
+        _movies = data.ToList();
+
+        _loading = false;
+    }
+
+    private async Task HandleShowDetails(Guid movieId)
+    {
+        // Callback fürs Navigieren zur Detailseite – aktuell nur Console-Logging
+        await JS.InvokeVoidAsync("console.log", $"Navigate to movie details: {movieId}");
+    }
+
+}
