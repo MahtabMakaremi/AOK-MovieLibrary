@@ -1,4 +1,6 @@
-﻿namespace AOKMovieLibrary.Models.DAL
+﻿using System;
+
+namespace AOKMovieLibrary.Models.DAL
 {
     [Flags]
     public enum MovieGenre
