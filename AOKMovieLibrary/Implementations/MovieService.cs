@@ -21,8 +21,9 @@ public class MovieService : IMovieService
                 new AOKMovieLibrary.Models.DAL.Movie
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Inception",
-                    Genre = AOKMovieLibrary.Models.DAL.MovieGenre.Action | AOKMovieLibrary.Models.DAL.MovieGenre.SciFi,
+                    Name = " The Godfather",
+                    PosterFileName="Godfather.jpg",
+                    Genre = AOKMovieLibrary.Models.DAL.MovieGenre.Action | AOKMovieLibrary.Models.DAL.MovieGenre.Drama | AOKMovieLibrary.Models.DAL.MovieGenre.Crime,
                     ReleaseYear = 2010,
                     DurationMinutes = 148,
                     Rating = 8.8m,
@@ -32,6 +33,7 @@ public class MovieService : IMovieService
                 {
                     Id = Guid.NewGuid(),
                     Name = "The Matrix",
+                    PosterFileName="matrix.jpg",
                     Genre = AOKMovieLibrary.Models.DAL.MovieGenre.Action | AOKMovieLibrary.Models.DAL.MovieGenre.SciFi,
                     ReleaseYear = 1999,
                     DurationMinutes = 136,
@@ -104,7 +106,7 @@ public class MovieService : IMovieService
             existing.Name = command.Title?.Trim() ?? existing.Name;
             existing.Genre = command.Genre;
             existing.ReleaseYear = command.Year;
-            existing.DurationMinutes = command.Runtime;  // ✅ passt
+            existing.DurationMinutes = command.Runtime;  
             existing.Rating = command.Rating;
             existing.UpdatedAtUtc = DateTime.UtcNow;
 

@@ -14,11 +14,15 @@ else if (_movies.Count == 0)
 }
 else
 {
-    @foreach (var movie in _movies)
-    {
-        <MovieListItem Movie="movie" OnShowDetails="HandleShowDetails" />
-    }
+    
+    <div style="max-width: 340px;">
+        @foreach (var movie in _movies)
+        {
+            <MovieListItem Movie="movie" OnShowDetails="HandleShowDetails" />
+        }
+    </div>
 }
+
 
 @code {
     private bool _loading = true;
@@ -36,7 +40,7 @@ else
 
     private async Task HandleShowDetails(Guid movieId)
     {
-        // Callback fürs Navigieren zur Detailseite – aktuell nur Console-Logging
+       
         await JS.InvokeVoidAsync("console.log", $"Navigate to movie details: {movieId}");
     }
 

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Queries\" />
+    <Folder Include="wwwroot\images\posters\" />
   </ItemGroup>
 
 </Project>

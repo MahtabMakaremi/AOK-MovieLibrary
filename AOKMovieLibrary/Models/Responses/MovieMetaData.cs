@@ -28,10 +28,7 @@ public record MovieMetaData
 
 public static class MovieMetaDataMapping
 {
-    /// <summary>
-    /// Mapping für "MetaData" (z.B. wenn du Movie-Liste / Kachelansicht hast).
-    /// Da dein DAL aktuell nur DirectorId hat, werden Director/Actors optional als Parameter übergeben.
-    /// </summary>
+
     public static MovieMetaData MapToMovieMetaData(
         this AOKMovieLibrary.Models.DAL.Movie movie,
         AOKMovieLibrary.Models.DAL.Person? director = null,
@@ -42,15 +39,15 @@ public static class MovieMetaDataMapping
         return new MovieMetaData
         {
             Id = movie.Id,
-            Title = movie.Name,                 // DAL: Name -> DTO: Title
+            Title = movie.Name,               
             Genre = movie.Genre,
-            Year = movie.ReleaseYear,           // DAL: ReleaseYear -> DTO: Year
+            Year = movie.ReleaseYear,           
             Director = director.MapToPersonMetaDataOrNull(),
             Actors = (actors ?? Enumerable.Empty<AOKMovieLibrary.Models.DAL.Person>())
                         .Select(a => a.MapToPersonMetaData())
                         .ToList(),
             Description = description,
-            Runtime = movie.DurationMinutes,    // DAL: DurationMinutes -> DTO: Runtime
+            Runtime = movie.DurationMinutes,    
             RowVersion = rowVersion ?? Array.Empty<byte>()
         };
     }

@@ -15,6 +15,8 @@ public record MovieOverviewData
 
     // Minuten
     public int Runtime { get; set; }
+    public string PosterUrl { get; set; } = "images/poster.png";
+
 }
 
 public static class MovieOverviewDataMapping
@@ -30,7 +32,10 @@ public static class MovieOverviewDataMapping
             GenreText = movie.Genre == AOKMovieLibrary.Models.DAL.MovieGenre.None
                 ? "None"
                 : movie.Genre.ToString().Replace(", ", ", "),
-            Runtime = movie.DurationMinutes
+            Runtime = movie.DurationMinutes,
+            PosterUrl = string.IsNullOrWhiteSpace(movie.PosterFileName)
+    ?       "images/poster.png"
+    :       $"images/posters/{movie.PosterFileName}"
         };
     }
 }

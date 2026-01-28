@@ -8,20 +8,19 @@ public class Movie
 
     public string Name { get; set; } = string.Empty;
 
-    // string Genre -> Flags Enum
+   
     public MovieGenre Genre { get; set; } = MovieGenre.None;
 
     public int ReleaseYear { get; set; }
     public int DurationMinutes { get; set; }
 
-    // Beziehungen / Zusatzinfos
     public Guid? DirectorId { get; set; }
-    public decimal Rating { get; set; } // 0..10
+    public decimal Rating { get; set; } 
 
     public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAtUtc { get; set; }
+    public string? PosterFileName { get; set; }
 
-    // Optional fürs UI: "Action, SciFi"
     public string GenreText => Genre == MovieGenre.None
         ? "None"
         : Genre.ToString().Replace(", ", ", ");
