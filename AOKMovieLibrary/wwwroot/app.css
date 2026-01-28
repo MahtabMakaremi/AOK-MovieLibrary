@@ -49,6 +49,40 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+.item.grid {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: start;
+    gap: 12px;
+    max-width: 320px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #f8f9fa; /* ähnlich bg-light */
+    border: 1px solid #dee2e6; /* ähnlich card border */
+    border-radius: 6px;
+}
+
+    .item.grid .poster img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .item.grid .title {
+        font-weight: 600;
+    }
+
+    .item.grid .meta {
+        color: #6c757d;
+        font-size: 0.875rem;
+    }
+
+    .item.grid .actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
 .poster-thumb {
     width: 40px !important;
     height: 40px !important;
@@ -57,4 +91,5 @@ h1:focus {
     border: 2px solid red !important;
     display: block !important;
 }
+
 

@@ -1,26 +1,19 @@
-﻿@using AOKMovieLibrary.Models.ViewModels
+﻿<div class="item grid">
+    <div class="poster">
+        <img src="@Movie.PosterUrl" alt="Poster" />
+    </div>
 
-<div class="card bg-light mb-3" style="max-width: 320px;">
-    <div class="card-body py-2">
-        <div class="d-flex align-items-start justify-content-between">
+    <div class="info">
+        <div class="title">@Movie.Title (@Movie.Year)</div>
+        <div class="meta">@Movie.GenreText</div>
+        <div class="meta">@Movie.Runtime min</div>
+    </div>
 
-            <div class="d-flex align-items-start">
-              
-                <img src="@Movie.PosterUrl" style="width:40px;height:40px;object-fit:cover;border:2px solid red;" class="me-2"/>
-
-                <div>
-                    <div class="fw-semibold">@Movie.Title (@Movie.Year)</div>
-                    <div class="text-muted small">@Movie.GenreText</div>
-                    <div class="text-muted small mt-1">@Movie.Runtime min</div>
-                </div>
-            </div>
-
-            <button class="btn btn-sm btn-primary"
-                    @onclick="() => OnShowDetails.InvokeAsync(Movie.Id)">
-                Details
-            </button>
-
-        </div>
+    <div class="actions">
+        <button class="btn btn-sm btn-primary"
+                @onclick="() => OnShowDetails.InvokeAsync(Movie.Id)">
+            Details
+        </button>
     </div>
 </div>
 

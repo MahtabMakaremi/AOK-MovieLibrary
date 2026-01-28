@@ -1,12 +1,11 @@
-﻿@using AOKMovieLibrary.Models.ViewModels
-
-<div class="card bg-light mb-3" style="max-width: 320px;">
+﻿<div class="card bg-light mb-3" style="max-width: 320px;">
     <div class="card-body py-2">
         <div class="d-flex align-items-start justify-content-between">
 
             <div class="d-flex align-items-start">
-                <img src="@Movie.PosterUrl" alt="Poster" style="width:40px;height:40px;object-fit:cover;border:2px solid red;"
-                     class="me-2" />
+                <img src="@Movie.PosterUrl" alt="Poster"
+                     class="me-2"
+                     style="width:40px;height:40px;object-fit:cover;" />
 
                 <div>
                     <div class="fw-semibold">@Movie.Title (@Movie.Year)</div>
