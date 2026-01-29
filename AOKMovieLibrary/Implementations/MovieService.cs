@@ -88,7 +88,7 @@ public class MovieService : IMovieService
 
         lock (_gate)
         {
-            _movies.Add(movie); // ✅ FIX: _movies statt movies
+            _movies.Add(movie); 
             return Task.FromResult(movie.MapToMovieDetailData());
         }
     }
@@ -116,13 +116,17 @@ public class MovieService : IMovieService
 
     public Task<bool> DeleteAsync(Guid id, CancellationToken ct = default)
     {
+        
+            return Task.FromResult(true);
+        
+    }
+    public Task<List<AOKMovieLibrary.Models.DAL.Movie>> GetEditableMoviesAsync(CancellationToken ct = default)
+    {
         lock (_gate)
         {
-            var existing = _movies.FirstOrDefault(m => m.Id == id);
-            if (existing is null) return Task.FromResult(false);
-
-            _movies.Remove(existing);
-            return Task.FromResult(true);
+           
+            return Task.FromResult(_movies);
         }
     }
+
 }

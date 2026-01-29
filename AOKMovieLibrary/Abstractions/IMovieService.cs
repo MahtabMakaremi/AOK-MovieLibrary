@@ -9,4 +9,5 @@ public interface IMovieService
     Task<MovieDetailData> CreateAsync(CreateMovieCommand command, CancellationToken ct = default);
     Task<bool> UpdateAsync(Guid id, UpdateMovieCommand command, CancellationToken ct = default);
     Task<bool> DeleteAsync(Guid id, CancellationToken ct = default);
+    Task<List<AOKMovieLibrary.Models.DAL.Movie>> GetEditableMoviesAsync(CancellationToken ct = default);
 }

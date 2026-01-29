@@ -10,10 +10,10 @@ public record MovieOverviewData
 
     public AOKMovieLibrary.Models.DAL.MovieGenre Genre { get; set; }
 
-    // Für UI wie im Screenshot: "Action, SciFi"
+ 
     public string GenreText { get; set; } = string.Empty;
 
-    // Minuten
+ 
     public int Runtime { get; set; }
     public string PosterUrl { get; set; } = "images/poster.png";
 
